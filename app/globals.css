@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif-family: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+    --font-sans-family: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
+
+    /* Palette variables */
+    --ivory: #F5F0E9;
+    --soft-white: #FAF8F4;
+    --dusty-rose: #B98388;
+    --deep-cocoa: #3A2620;
+    --charcoal: #1C1B1B;
+    --warm-sand: #D8C8B9;
+    --gold-accent: #C5A059;
+  }
+
+  body {
+    font-family: var(--font-sans-family);
+    background-color: var(--ivory);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif-display {
+    font-family: var(--font-serif-family);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0E9;
+}
+::-webkit-scrollbar-thumb {
+  background: #B98388;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3A2620;
+}
+
+/* Custom Animations & Masks */
+.text-mask-hidden {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transform: translateY(100%);
+}
+
+.text-mask-visible {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transform: translateY(0);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-mask-slot {
+  clip-path: polygon(30% 0%, 70% 0%, 70% 100%, 30% 100%);
+}
+
+.image-mask-full {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* Noise overlay for depth */
+.bg-noise {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-noise-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
