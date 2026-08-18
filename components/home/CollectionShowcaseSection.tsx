@@ -13,7 +13,7 @@ const CATEGORIES = [
     word: "GRACE.",
     bgClass: "bg-[#F5F0E9]",
     accentColor: "#B98388",
-    garment: "/images/Viscose_hijab_on_display_bust_202608071226.png",
+    garment: "/images/showcase_hijab.png",
     description: "Flowing chiffons and satin wraps that rest softly around the frame.",
   },
   {
@@ -22,7 +22,7 @@ const CATEGORIES = [
     word: "COVERAGE.",
     bgClass: "bg-[#3A2620]",
     accentColor: "#D8C8B9",
-    garment: "/images/Model_wearing_black_niqab_2K_202608071228.png",
+    garment: "/images/showcase_niqab.png",
     description: "Triple-layered veil silhouettes combining complete opacity with effortless breathability.",
   },
   {
@@ -31,7 +31,7 @@ const CATEGORIES = [
     word: "MOVEMENT.",
     bgClass: "bg-[#1C1B1B]",
     accentColor: "#C5A059",
-    garment: "/images/Model_wearing_emerald_green_abaya_202608071229.png",
+    garment: "/images/showcase_abaya.png",
     description: "Generous silhouettes, hand-finished cuffs, and royal velvet drapes.",
   },
   {
@@ -40,7 +40,7 @@ const CATEGORIES = [
     word: "ELEGANCE.",
     bgClass: "bg-[#D8C8B9]",
     accentColor: "#3A2620",
-    garment: "/images/Khimar_on_display_stand_2K_202608071226.png",
+    garment: "/images/showcase_khimar.png",
     description: "Full overhead coverage with shoulder flare and lightweight drape geometry.",
   },
 ];
