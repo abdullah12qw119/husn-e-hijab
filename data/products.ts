@@ -2,6 +2,7 @@ export interface Product {
   id: string;
   name: string;
   category: "Hijab" | "Niqab" | "Abaya" | "Khimar";
+  price: number;
   image: string;
   secondaryImage?: string;
   description: string;
@@ -16,6 +17,7 @@ export const productsData: Product[] = [
     id: "dusty-rose-ensemble",
     name: "Husn Flowing Rose Ensemble",
     category: "Abaya",
+    price: 8900,
     image: "/images/home/Model_wearing_modest_outfit_bundle_202608071227.png",
     secondaryImage: "/assets/hero-drape.png",
     description:
@@ -29,6 +31,7 @@ export const productsData: Product[] = [
     id: "emerald-velvet-abaya",
     name: "Royal Emerald Velvet Abaya",
     category: "Abaya",
+    price: 12500,
     image: "/images/Model_wearing_emerald_green_abaya_202608071229.png",
     secondaryImage: "/images/home/Model_wearing_embroidered_green_._202608071228.png",
     description:
@@ -42,6 +45,7 @@ export const productsData: Product[] = [
     id: "black-lace-abaya",
     name: "Noir Lace Trim Abaya",
     category: "Abaya",
+    price: 7800,
     image: "/images/Black_abaya_apparel_mockup_2K_202608071224.png",
     secondaryImage: "/images/home/Butterfly_abaya_on_display_manne._202608071226.png",
     description:
@@ -55,6 +59,7 @@ export const productsData: Product[] = [
     id: "three-layer-niqab",
     name: "Vail 3-Tier Layered Niqab",
     category: "Niqab",
+    price: 2900,
     image: "/images/Model_wearing_black_niqab_2K_202608071228.png",
     secondaryImage: "/assets/hero-niqab.png",
     description:
@@ -68,6 +73,7 @@ export const productsData: Product[] = [
     id: "brown-cocoa-niqab",
     name: "Cocoa Satin Trim Niqab",
     category: "Niqab",
+    price: 2400,
     image: "/images/Model_wearing_brown_niqab_and_202608071227.png",
     secondaryImage: "/images/Studio_portrait_of_black_niqab_202608071229.png",
     description:
@@ -81,6 +87,7 @@ export const productsData: Product[] = [
     id: "viscose-drape-hijab",
     name: "Imperial Viscose Drape Hijab",
     category: "Hijab",
+    price: 1950,
     image: "/images/Viscose_hijab_on_display_bust_202608071226.png",
     secondaryImage: "/images/Model_wearing_black_hijab_portrait_202608071227.png",
     description:
@@ -94,6 +101,7 @@ export const productsData: Product[] = [
     id: "satin-silk-hijab",
     name: "Satin Silk Shimmer Hijab",
     category: "Hijab",
+    price: 2600,
     image: "/images/Satin_silk_hijab_mockup_render_202608071226.png",
     secondaryImage: "/images/Viscose_hijab_on_display_bust_202608071226.png",
     description:
@@ -107,6 +115,7 @@ export const productsData: Product[] = [
     id: "classic-khimar-stand",
     name: "Grace Overhead Khimar",
     category: "Khimar",
+    price: 4900,
     image: "/images/Khimar_on_display_stand_2K_202608071226.png",
     secondaryImage: "/assets/hero-drape.png",
     description:
@@ -120,6 +129,7 @@ export const productsData: Product[] = [
     id: "sage-green-layered-abaya",
     name: "Sage Whisper Layered Abaya",
     category: "Abaya",
+    price: 9400,
     image: "/images/Sage_green_abaya_3D_mockup_202608071226.png",
     secondaryImage: "/images/Model_wearing_emerald_green_abaya_202608071229.png",
     description:

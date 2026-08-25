@@ -4,13 +4,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ShoppingBag } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { totalItemsCount, openCart } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,28 +106,44 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:flex items-center">
-          <Link
-            href="/products"
-            className="group relative inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.15em] font-medium border border-[#3A2620]/30 rounded-full overflow-hidden transition-all duration-500 hover:border-[#3A2620] hover:shadow-sm"
+        {/* Right Actions: Cart & Desktop CTA */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Cart Icon Button */}
+          <button
+            onClick={openCart}
+            aria-label="View Shopping Cart"
+            className="relative p-2.5 rounded-full bg-[#FAF8F4] border border-[#3A2620]/20 text-[#3A2620] hover:border-[#3A2620] hover:bg-[#3A2620] hover:text-[#FAF8F4] transition-all shadow-xs"
           >
-            <span className="relative z-10 text-[#3A2620] transition-colors duration-500 group-hover:text-[#FAF8F4]">
-              Explore Collection
-            </span>
-            <ArrowUpRight className="relative z-10 w-3.5 h-3.5 text-[#3A2620] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#FAF8F4]" />
-            <span className="absolute inset-0 bg-[#3A2620] transform -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0" />
-          </Link>
-        </div>
+            <ShoppingBag className="w-5 h-5" />
+            {totalItemsCount > 0 && (
+              <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#B98388] text-[#FAF8F4] text-[10px] font-mono font-bold flex items-center justify-center border-2 border-[#FAF8F4] animate-pulse">
+                {totalItemsCount}
+              </span>
+            )}
+          </button>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Navigation Menu"
-          className="md:hidden p-2 text-[#3A2620] focus:outline-none focus:ring-2 focus:ring-[#B98388] rounded-lg"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+          <div className="hidden md:flex items-center">
+            <Link
+              href="/products"
+              className="group relative inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.15em] font-medium border border-[#3A2620]/30 rounded-full overflow-hidden transition-all duration-500 hover:border-[#3A2620] hover:shadow-sm"
+            >
+              <span className="relative z-10 text-[#3A2620] transition-colors duration-500 group-hover:text-[#FAF8F4]">
+                Explore Collection
+              </span>
+              <ArrowUpRight className="relative z-10 w-3.5 h-3.5 text-[#3A2620] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#FAF8F4]" />
+              <span className="absolute inset-0 bg-[#3A2620] transform -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0" />
+            </Link>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
+            className="md:hidden p-2 text-[#3A2620] focus:outline-none focus:ring-2 focus:ring-[#B98388] rounded-lg"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Drawer Overlay */}

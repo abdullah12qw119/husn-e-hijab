@@ -3,9 +3,10 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { Eye, ArrowUpRight, Filter } from "lucide-react";
+import { Eye, ArrowUpRight, Filter, ShoppingBag, Plus } from "lucide-react";
 import { productsData, Product } from "@/data/products";
 import QuickViewModal from "@/components/ui/QuickViewModal";
+import { useCart } from "@/context/CartContext";
 
 const CATEGORIES = ["All", "Hijab", "Niqab", "Abaya", "Khimar"];
 
@@ -15,7 +16,7 @@ export default function ProductGrid() {
 
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const { addToCart } = useCart();
 
   const filteredProducts = useMemo(() => {
     if (selectedCategory === "All") return productsData;
@@ -55,24 +56,18 @@ export default function ProductGrid() {
       {/* Product Catalog Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
         {filteredProducts.map((product) => {
-          const isHovered = hoveredId === product.id;
-          const displayImg =
-            isHovered && product.secondaryImage ? product.secondaryImage : product.image;
-
           return (
             <div
               key={product.id}
               className="group relative bg-[#FAF8F4] border border-[#3A2620]/10 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
-              onMouseEnter={() => setHoveredId(product.id)}
-              onMouseLeave={() => setHoveredId(null)}
             >
               {/* Product Image Area */}
               <div className="relative aspect-[3/4] bg-[#F5F0E9] p-6 flex items-center justify-center overflow-hidden border-b border-[#3A2620]/5">
                 <Image
-                  src={displayImg}
+                  src={product.image}
                   alt={product.name}
                   fill
-                  className="object-contain p-4 transform transition-transform duration-700 group-hover:scale-105"
+                  className="object-contain p-4 transition-transform duration-700 ease-out transform group-hover:scale-110"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
 
@@ -82,12 +77,18 @@ export default function ProductGrid() {
                 </div>
 
                 {/* Quick View Overlay Button */}
-                <div className="absolute inset-0 bg-[#1C1B1B]/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#1C1B1B]/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
                   <button
                     onClick={() => setSelectedProduct(product)}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#FAF8F4] text-[#1C1B1B] text-xs uppercase tracking-[0.15em] font-semibold rounded-full shadow-2xl hover:bg-[#3A2620] hover:text-[#FAF8F4] transition-all transform translate-y-4 group-hover:translate-y-0"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#FAF8F4] text-[#1C1B1B] text-[11px] uppercase tracking-wider font-semibold rounded-full shadow-2xl hover:bg-[#3A2620] hover:text-[#FAF8F4] transition-all transform translate-y-4 group-hover:translate-y-0"
                   >
-                    <Eye className="w-4 h-4 text-[#B98388]" /> Quick View
+                    <Eye className="w-3.5 h-3.5 text-[#B98388]" /> Quick View
+                  </button>
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#3A2620] text-[#FAF8F4] text-[11px] uppercase tracking-wider font-semibold rounded-full shadow-2xl hover:bg-[#B98388] transition-all transform translate-y-4 group-hover:translate-y-0"
+                  >
+                    <ShoppingBag className="w-3.5 h-3.5 text-[#C5A059]" /> + Cart
                   </button>
                 </div>
               </div>
@@ -96,7 +97,7 @@ export default function ProductGrid() {
               <div className="p-6 space-y-3">
                 <div className="flex items-center justify-between text-[11px] text-[#3A2620]/60 font-mono">
                   <span>{product.tag}</span>
-                  <span>{product.colorTone}</span>
+                  <span className="font-semibold text-[#B98388]">Rs. {product.price.toLocaleString()}</span>
                 </div>
 
                 <h3 className="font-serif-display text-xl font-semibold text-[#1C1B1B] group-hover:text-[#B98388] transition-colors">
@@ -109,13 +110,13 @@ export default function ProductGrid() {
 
                 <div className="pt-3 border-t border-[#3A2620]/5 flex items-center justify-between text-xs font-medium text-[#3A2620]">
                   <span className="text-[11px] text-[#B98388] uppercase tracking-wider">
-                    {product.specifications[0]}
+                    {product.colorTone}
                   </span>
                   <button
-                    onClick={() => setSelectedProduct(product)}
-                    className="inline-flex items-center gap-1 hover:text-[#B98388] transition-colors"
+                    onClick={() => addToCart(product)}
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#3A2620]/5 hover:bg-[#3A2620] hover:text-[#FAF8F4] transition-all text-[11px] font-semibold"
                   >
-                    Details <ArrowUpRight className="w-3.5 h-3.5" />
+                    <Plus className="w-3 h-3 text-[#B98388]" /> Add to Cart
                   </button>
                 </div>
               </div>

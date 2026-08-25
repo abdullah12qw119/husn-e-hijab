@@ -14,26 +14,39 @@ export default function AboutPage() {
     <div className="min-h-screen w-full bg-[#F5F0E9] pt-32 pb-24 text-[#1C1B1B]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Page Hero */}
-        <div className="space-y-6 text-left border-b border-[#3A2620]/10 pb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#3A2620]/20 text-[10px] uppercase tracking-[0.3em] font-semibold text-[#B98388] bg-[#FAF8F4]/80">
-            <Sparkles className="w-3.5 h-3.5" /> BRAND PHILOSOPHY
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-[#3A2620]/10 pb-16">
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#3A2620]/20 text-[10px] uppercase tracking-[0.3em] font-semibold text-[#B98388] bg-[#FAF8F4]/80">
+              <Sparkles className="w-3.5 h-3.5" /> BRAND PHILOSOPHY
+            </div>
+
+            <h1 className="font-serif-display text-5xl sm:text-7xl lg:text-8xl font-light tracking-tight">
+              MODESTY, <br />
+              <span className="font-semibold italic text-[#B98388]">REIMAGINED.</span>
+            </h1>
+
+            <p className="text-sm sm:text-lg text-[#1C1B1B]/80 max-w-2xl font-light leading-relaxed">
+              Husn-e-Hijab explores modest dressing through graceful silhouettes, thoughtful coverage and contemporary simplicity.
+            </p>
           </div>
 
-          <h1 className="font-serif-display text-5xl sm:text-7xl lg:text-8xl font-light tracking-tight">
-            MODESTY, <br />
-            <span className="font-semibold italic text-[#B98388]">REIMAGINED.</span>
-          </h1>
-
-          <p className="text-sm sm:text-lg text-[#1C1B1B]/80 max-w-2xl font-light leading-relaxed">
-            Husn-e-Hijab explores modest dressing through graceful silhouettes, thoughtful coverage and contemporary simplicity.
-          </p>
+          <div className="lg:col-span-5 relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-[#3A2620]/10">
+            <Image
+              src="/images/about/about_hero_boutique.jpg"
+              alt="Husn-e-Hijab Boutique Philosophy"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              priority
+            />
+          </div>
         </div>
 
         {/* Editorial Story Composition */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-[#FAF8F4] border border-[#3A2620]/10">
             <Image
-              src="/images/home/Model_wearing_embroidered_green_._202608071228.png"
+              src="/images/about/about_brand_story_boutique.jpg"
               alt="Husn-e-Hijab Brand Story Visual"
               fill
               className="object-cover object-center"
@@ -130,7 +143,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-xs aspect-square rounded-2xl overflow-hidden border border-[#FAF8F4]/20 shadow-2xl">
               <Image
-                src="/images/home/Woman_displaying_modest_outfit_p._202608071229.png"
+                src="/images/about/about_atelier_contact.jpg"
                 alt="Husn-e-Hijab Atelier Representation"
                 fill
                 className="object-cover"

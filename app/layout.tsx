@@ -3,6 +3,8 @@ import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/cart/CartDrawer";
 
 const serifDisplay = Cormorant_Garamond({
   subsets: ["latin"],
@@ -34,9 +36,12 @@ export default function RootLayout({
       className={`${serifDisplay.variable} ${sansBody.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-screen bg-[#F5F0E9] text-[#1C1B1B] font-sans selection:bg-[#B98388] selection:text-white flex flex-col overflow-x-hidden">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          <CartDrawer />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
