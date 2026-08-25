@@ -12,7 +12,6 @@ import {
   Globe2,
   ArrowRight,
   Sparkles,
-  Phone,
 } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 
@@ -53,14 +52,17 @@ export default function OrderSuccessPage() {
   const [order, setOrder] = useState<OrderData | null>(null);
 
   useEffect(() => {
-    try {
-      const saved = sessionStorage.getItem("husn_latest_order");
-      if (saved) {
-        setOrder(JSON.parse(saved));
+    const t = window.setTimeout(() => {
+      try {
+        const saved = sessionStorage.getItem("husn_latest_order");
+        if (saved) {
+          setOrder(JSON.parse(saved));
+        }
+      } catch (err) {
+        console.error("Failed to parse order from session:", err);
       }
-    } catch (err) {
-      console.error("Failed to parse order from session:", err);
-    }
+    }, 0);
+    return () => window.clearTimeout(t);
   }, []);
 
   useEffect(() => {

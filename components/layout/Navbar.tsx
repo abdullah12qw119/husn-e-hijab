@@ -44,10 +44,8 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Close menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
+  // Close menu on route change is handled via onClick on drawer links
+  // (event-driven instead of a setState-in-effect)
 
   return (
     <header
@@ -164,12 +162,13 @@ export default function Navbar() {
           <div className="text-[10px] tracking-[0.25em] uppercase text-[#B98388] font-semibold border-b border-[#3A2620]/10 pb-2">
             Navigation
           </div>
-          {siteConfig.navLinks.map((link, idx) => {
+            {siteConfig.navLinks.map((link, idx) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
                 style={{ animationDelay: `${idx * 80}ms` }}
                 className={`text-lg font-serif-display tracking-wider flex items-center justify-between transition-colors border-b border-[#3A2620]/5 pb-3 ${
                   isActive ? "text-[#B98388] font-semibold" : "text-[#1C1B1B] hover:text-[#3A2620]"
@@ -185,6 +184,7 @@ export default function Navbar() {
         <div className="space-y-4 pt-6 border-t border-[#3A2620]/10">
           <Link
             href="/products"
+            onClick={() => setMobileMenuOpen(false)}
             className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-[#3A2620] text-[#FAF8F4] text-xs uppercase tracking-widest rounded-md hover:bg-[#1C1B1B] transition-colors"
           >
             Explore Collection <ArrowUpRight className="w-4 h-4" />

@@ -35,7 +35,12 @@ export default function RootLayout({
       lang="en"
       className={`${serifDisplay.variable} ${sansBody.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-[#F5F0E9] text-[#1C1B1B] font-sans selection:bg-[#B98388] selection:text-white flex flex-col overflow-x-hidden">
+      {/* suppressHydrationWarning: browser extensions inject attributes
+          (e.g. __processed_*) into <body> before React hydrates */}
+      <body
+        suppressHydrationWarning
+        className="min-h-screen bg-[#F5F0E9] text-[#1C1B1B] font-sans selection:bg-[#B98388] selection:text-white flex flex-col overflow-x-hidden"
+      >
         <CartProvider>
           <Navbar />
           <CartDrawer />

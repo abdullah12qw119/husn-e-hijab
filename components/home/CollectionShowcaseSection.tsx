@@ -54,7 +54,9 @@ export default function CollectionShowcaseSection() {
   const isAnimatingRef = useRef(false);
   const activeIndexRef = useRef(0);
 
-  activeIndexRef.current = activeCategoryIndex;
+  useEffect(() => {
+    activeIndexRef.current = activeCategoryIndex;
+  }, [activeCategoryIndex]);
   const currentCat = CATEGORIES[activeCategoryIndex];
 
   // Fix 3: Unified slide transition function with garment & text re-animation

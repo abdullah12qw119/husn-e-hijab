@@ -31,16 +31,22 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [isHydrated, setIsHydrated] = useState(false);
 
   // Load cart from localStorage on initial client mount
+  // Deferred to a macrotask: avoids synchronous setState during the
+  // commit phase (react-hooks/set-state-in-effect) while keeping the
+  // prerendered HTML hydration-safe.
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(CART_STORAGE_KEY);
-      if (saved) {
-        setItems(JSON.parse(saved));
+    const t = window.setTimeout(() => {
+      try {
+        const saved = localStorage.getItem(CART_STORAGE_KEY);
+        if (saved) {
+          setItems(JSON.parse(saved));
+        }
+      } catch (err) {
+        console.error("Failed to load cart from storage:", err);
       }
-    } catch (err) {
-      console.error("Failed to load cart from storage:", err);
-    }
-    setIsHydrated(true);
+      setIsHydrated(true);
+    }, 0);
+    return () => window.clearTimeout(t);
   }, []);
 
   // Save cart to localStorage whenever items change

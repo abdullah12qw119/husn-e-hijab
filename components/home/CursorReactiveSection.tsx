@@ -17,12 +17,13 @@ export default function CursorReactiveSection() {
 
   useEffect(() => {
     // Detect touch / reduced motion preference
-    if (
+    // Deferred so we don't setState synchronously inside the effect
+    const coarse =
       window.matchMedia("(pointer: coarse)").matches ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setIsTouchDevice(true);
-    }
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!coarse) return;
+    const t = window.setTimeout(() => setIsTouchDevice(true), 0);
+    return () => window.clearTimeout(t);
   }, []);
 
   // Fix 5A & 5B: Responsive Garment & Layered Typography Cursor Parallax

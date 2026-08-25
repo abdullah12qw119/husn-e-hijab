@@ -20,7 +20,7 @@ export default function ContactPage() {
             </div>
 
             <h1 className="font-serif-display text-5xl sm:text-7xl font-light tracking-tight text-[#1C1B1B]">
-              LET'S <span className="font-semibold italic text-[#B98388]">CONNECT.</span>
+              LET&rsquo;S <span className="font-semibold italic text-[#B98388]">CONNECT.</span>
             </h1>
 
             <p className="text-sm sm:text-base text-[#1C1B1B]/80 max-w-xl font-light leading-relaxed">

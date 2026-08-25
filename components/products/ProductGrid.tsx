@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { Eye, ArrowUpRight, Filter, ShoppingBag, Plus } from "lucide-react";
+import { Eye, Filter, ShoppingBag, Plus } from "lucide-react";
 import { productsData, Product } from "@/data/products";
 import QuickViewModal from "@/components/ui/QuickViewModal";
 import { useCart } from "@/context/CartContext";
@@ -125,8 +125,9 @@ export default function ProductGrid() {
         })}
       </div>
 
-      {/* Quick View Modal */}
+      {/* Quick View Modal — key remounts per product so internal state (quantity) resets */}
       <QuickViewModal
+        key={selectedProduct?.id ?? "none"}
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
       />

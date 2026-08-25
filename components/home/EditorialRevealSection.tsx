@@ -86,7 +86,9 @@ export default function EditorialRevealSection() {
   const isAnimatingRef = useRef(false);
   const activeIndexRef = useRef(0);
 
-  activeIndexRef.current = activeSlideIndex;
+  useEffect(() => {
+    activeIndexRef.current = activeSlideIndex;
+  }, [activeSlideIndex]);
   const currentSlide = FASHION_SLIDES[activeSlideIndex];
 
   // Motion Architecture: Promoting small preview character into main position

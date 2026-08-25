@@ -14,9 +14,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
 
-  useEffect(() => {
-    setQuantity(1);
-  }, [product]);
+  // quantity resets via `key` on <QuickViewModal> at the usage site
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

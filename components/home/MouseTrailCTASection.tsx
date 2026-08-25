@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import gsap from "gsap";
 
 const TRAIL_IMAGES = [
   "/images/Black_abaya_apparel_mockup_2K_202608071224.webp",
@@ -31,9 +30,13 @@ export default function MouseTrailCTASection() {
   const indexRef = useRef(0);
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsTouchDevice(true);
-    }
+    // Deferred so we don't setState synchronously inside the effect
+    const disableInteraction =
+      window.matchMedia("(pointer: coarse)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!disableInteraction) return;
+    const t = window.setTimeout(() => setIsTouchDevice(true), 0);
+    return () => window.clearTimeout(t);
   }, []);
 
   // Desktop Mouse Trail Engine (Ref: 20260812_235532.mp4)
