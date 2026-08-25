@@ -31,7 +31,7 @@ const FASHION_SLIDES: FashionSlide[] = [
     textColor: "text-[#1C1B1B]",
     accentColor: "#B98388",
     words: ["SOFT", "GRACE."],
-    garment: "/assets/editorial/look-1-drape.png",
+    garment: "/assets/editorial/look-1-drape.webp",
   },
   {
     id: "abaya-cocoa",
@@ -44,7 +44,7 @@ const FASHION_SLIDES: FashionSlide[] = [
     textColor: "text-[#FAF8F4]",
     accentColor: "#C5A059",
     words: ["FLOWING", "FORM."],
-    garment: "/assets/editorial/look-2-emerald.png",
+    garment: "/assets/editorial/look-2-emerald.webp",
   },
   {
     id: "hijab-sage",
@@ -57,7 +57,7 @@ const FASHION_SLIDES: FashionSlide[] = [
     textColor: "text-[#FAF8F4]",
     accentColor: "#D8C8B9",
     words: ["QUIET", "BEAUTY."],
-    garment: "/assets/editorial/look-3-sage.png",
+    garment: "/assets/editorial/look-3-sage.webp",
   },
   {
     id: "abaya-charcoal",
@@ -70,7 +70,7 @@ const FASHION_SLIDES: FashionSlide[] = [
     textColor: "text-[#FAF8F4]",
     accentColor: "#C5A059",
     words: ["MODEST", "MOTION."],
-    garment: "/assets/editorial/look-4-noir.png",
+    garment: "/assets/editorial/look-4-noir.webp",
   },
 ];
 

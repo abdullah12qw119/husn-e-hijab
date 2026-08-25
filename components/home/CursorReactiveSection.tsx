@@ -168,7 +168,7 @@ export default function CursorReactiveSection() {
             className="relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[480px] aspect-[3/4] h-[450px] sm:h-[540px] lg:h-[600px] transition-transform"
           >
             <Image
-              src="/images/dark_scene_garment.png"
+              src="/images/dark_scene_garment.webp"
               alt="Quiet Confidence Dark Scene Garment"
               fill
               className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"

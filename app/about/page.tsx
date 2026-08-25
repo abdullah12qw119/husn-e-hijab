@@ -32,7 +32,7 @@ export default function AboutPage() {
 
           <div className="lg:col-span-5 relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-[#3A2620]/10">
             <Image
-              src="/images/about/about_hero_boutique.jpg"
+              src="/images/about/about_hero_boutique.webp"
               alt="Husn-e-Hijab Boutique Philosophy"
               fill
               className="object-cover"
@@ -46,7 +46,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-[#FAF8F4] border border-[#3A2620]/10">
             <Image
-              src="/images/about/about_brand_story_boutique.jpg"
+              src="/images/about/about_brand_story_boutique.webp"
               alt="Husn-e-Hijab Brand Story Visual"
               fill
               className="object-cover object-center"
@@ -143,7 +143,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-xs aspect-square rounded-2xl overflow-hidden border border-[#FAF8F4]/20 shadow-2xl">
               <Image
-                src="/images/about/about_atelier_contact.jpg"
+                src="/images/about/about_atelier_contact.webp"
                 alt="Husn-e-Hijab Atelier Representation"
                 fill
                 className="object-cover"

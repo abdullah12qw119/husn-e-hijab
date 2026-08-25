@@ -41,7 +41,7 @@ export default function ContactPage() {
 
           <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-[#FAF8F4] border border-[#3A2620]/10 group">
             <Image
-              src="/images/contact/contact_hero_atelier.jpg"
+              src="/images/contact/contact_hero_atelier.webp"
               alt="Husn-e-Hijab Concierge Workspace"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"

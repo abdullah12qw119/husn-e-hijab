@@ -7,12 +7,12 @@ import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 
 const TRAIL_IMAGES = [
-  "/images/Black_abaya_apparel_mockup_2K_202608071224.png",
-  "/images/Model_wearing_black_niqab_2K_202608071228.png",
-  "/images/Viscose_hijab_on_display_bust_202608071226.png",
-  "/images/Model_wearing_emerald_green_abaya_202608071229.png",
-  "/images/Satin_silk_hijab_mockup_render_202608071226.png",
-  "/images/Khimar_on_display_stand_2K_202608071226.png",
+  "/images/Black_abaya_apparel_mockup_2K_202608071224.webp",
+  "/images/Model_wearing_black_niqab_2K_202608071228.webp",
+  "/images/Viscose_hijab_on_display_bust_202608071226.webp",
+  "/images/Model_wearing_emerald_green_abaya_202608071229.webp",
+  "/images/Satin_silk_hijab_mockup_render_202608071226.webp",
+  "/images/Khimar_on_display_stand_2K_202608071226.webp",
 ];
 
 interface TrailItem {

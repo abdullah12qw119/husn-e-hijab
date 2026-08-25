@@ -11,8 +11,7 @@ export const siteConfig = {
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ],
-  logoOriginal: "/assets/husn-logo-original.png",
-  logoMark: "/assets/husn-mark-v2.png",
+  logoMark: "/assets/husn-mark-v2.webp",
   principles: [
     {
       title: "GRACE",

@@ -106,7 +106,7 @@ export default function FeaturePillsSection() {
           <div className="lg:col-span-6 flex justify-center">
             <div className="relative w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl bg-[#F5F0E9] border border-[#3A2620]/10">
               <Image
-                src="/images/Sage_green_abaya_3D_mockup_202608071226.png"
+                src="/images/Sage_green_abaya_3D_mockup_202608071226.webp"
                 alt="Feature Garment Detail"
                 fill
                 className="object-contain p-4"

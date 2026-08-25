@@ -13,7 +13,7 @@ const HERO_STATES = [
     label: "01 / DUSTY ROSE",
     bgClass: "bg-[#F5F0E9]",
     accentColor: "#B98388",
-    garment: "/assets/hero-drape.png",
+    garment: "/assets/hero-drape.webp",
     subtitle: "Contemporary modest wear shaped around grace & motion.",
   },
   {
@@ -21,7 +21,7 @@ const HERO_STATES = [
     label: "02 / DEEP COCOA",
     bgClass: "bg-[#3A2620]",
     accentColor: "#D8C8B9",
-    garment: "/assets/cocoa-hero-new.png",
+    garment: "/assets/cocoa-hero-new.webp",
     subtitle: "Warm earth tones layered with quiet dignity.",
   },
   {
@@ -29,7 +29,7 @@ const HERO_STATES = [
     label: "03 / OBSIDIAN CHARCOAL",
     bgClass: "bg-[#1C1B1B]",
     accentColor: "#C5A059",
-    garment: "/assets/hero-niqab.png",
+    garment: "/assets/hero-niqab.webp",
     subtitle: "Pure minimalist coverage crafted for timeless poise.",
   },
 ];
