@@ -110,7 +110,7 @@ export default function OrderSuccessPage() {
 👤 *Customer Name:* ${order.customer.name}
 📞 *Phone:* ${order.customer.phone}
 ✉️ *Email:* ${order.customer.email}
-📍 *Delivery Address:* ${order.customer.address}, ${order.customer.city}, ${order.country || "Pakistan"}
+📍 *Delivery Address:* ${order.customer.address}, ${order.customer.city}, ${order.customer.country || "Pakistan"}
 
 📦 *ORDERED ITEMS:*
 ${itemsFormatted}

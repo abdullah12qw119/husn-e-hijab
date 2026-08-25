@@ -242,6 +242,33 @@ const { items, addToCart, removeFromCart, updateQuantity, clearCart,
 
 ---
 
+## Deployment (GitHub Pages)
+
+The site deploys automatically to GitHub Pages via GitHub Actions on every push to `master`.
+
+**Live URL:** https://abdullah12qw119.github.io/husn-e-hijab/
+
+### How it works
+
+1. `.github/workflows/deploy.yml` builds a static export (`output: "export"`) on push
+2. The build sets `NEXT_PUBLIC_BASE_PATH=/husn-e-hijab` so all asset URLs are prefixed for the subpath
+3. `image-loader.ts` (custom Next.js image loader) prefixes all `next/image` srcs at build time
+4. `trailingSlash: true` emits each route as a folder with `index.html` so direct URLs work
+5. `public/.nojekyll` prevents Jekyll processing of `_next/` assets
+6. The `out/` folder is uploaded and served via `actions/deploy-pages`
+
+### One-time setup (already done / required if recreating)
+
+In **GitHub repo → Settings → Pages → Source**, select **GitHub Actions**.
+
+### Manual trigger
+
+The workflow also supports manual runs via **Actions → Deploy to GitHub Pages → Run workflow**.
+
+> Note: locally, `npm run dev` and `npm run build && npm start` work unchanged — the static-export config only activates when `NEXT_PUBLIC_BASE_PATH` is set.
+
+---
+
 ## Assets
 
 - **Brand:** Logo original + mark (`public/assets/`)
