@@ -115,13 +115,13 @@ export default function CursorReactiveSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full bg-[#1C1B1B] text-[#FAF8F4] py-24 flex items-center justify-center overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-24 min-h-[85vh] lg:min-h-[90vh] w-full bg-[#1C1B1B] text-[#FAF8F4] flex items-center justify-center overflow-hidden"
     >
       {/* Soft Radial Atmospheric Cursor Spotlight (Ref: 20260812_235421.mp4) */}
       {!isTouchDevice && (
         <div
           ref={spotlightRef}
-          className="absolute w-[500px] h-[500px] bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500"
+          className="absolute w-[550px] h-[550px] bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500"
         />
       )}
 
@@ -133,10 +133,10 @@ export default function CursorReactiveSection() {
         CONFIDENCE
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         {/* Left Column: Dark Scene Headline with Layered Parallax */}
         <div className="lg:col-span-6 space-y-6 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#C5A059]/30 text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#C5A059]/30 text-[10px] uppercase tracking-[0.3em] text-[#C5A059]">
             05 / CURSOR-REACTIVE DARK SCENE
           </div>
 
@@ -148,7 +148,7 @@ export default function CursorReactiveSection() {
             <span className="font-semibold italic text-[#B98388]">CONFIDENCE.</span>
           </h2>
 
-          <div ref={subtextRef} className="space-y-4">
+          <div ref={subtextRef} className="space-y-5">
             <p className="text-xs sm:text-base text-[#FAF8F4]/70 max-w-md font-light leading-relaxed">
               Modesty expressed through movement, proportion and graceful coverage. Crafted for women who navigate the world with quiet strength.
             </p>
@@ -165,21 +165,22 @@ export default function CursorReactiveSection() {
         <div className="lg:col-span-6 flex justify-center items-center relative">
           <div
             ref={garmentRef}
-            className="relative w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-[#FAF8F4]/10 bg-[#3A2620]/40 transition-transform"
+            className="relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[480px] aspect-[3/4] h-[450px] sm:h-[540px] lg:h-[600px] transition-transform"
           >
             <Image
-              src="/images/Model_wearing_niqab_and_abaya_202608071229.png"
+              src="/images/dark_scene_garment.png"
               alt="Quiet Confidence Dark Scene Garment"
               fill
-              className="object-contain p-4"
+              className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
               sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
             />
           </div>
 
           {/* Foreground Editorial Badge */}
           <div
             ref={labelRef}
-            className="absolute bottom-6 right-4 sm:right-12 z-20 px-5 py-3 bg-[#FAF8F4] text-[#1C1B1B] rounded-xl shadow-2xl border border-[#C5A059]/30 text-xs font-serif-display font-semibold tracking-wider hidden sm:block transition-transform"
+            className="absolute bottom-4 right-2 sm:right-6 z-20 px-5 py-3 bg-[#FAF8F4] text-[#1C1B1B] rounded-xl shadow-2xl border border-[#C5A059]/30 text-xs font-serif-display font-semibold tracking-wider hidden sm:block transition-transform"
           >
             OBSIDIAN NIQAB EDITION
           </div>
